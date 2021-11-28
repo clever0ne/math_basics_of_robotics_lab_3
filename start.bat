@@ -1,1 +1,1 @@
-matlab -nosplash -nodesktop -r "try, run('src\main\lab_3_pankov_ilya.m'), catch, exit, end"
+matlab -nosplash -nodesktop -r "try, run('src\main\main.m'), catch, exit, end"

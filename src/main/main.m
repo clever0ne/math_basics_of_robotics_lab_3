@@ -6,7 +6,7 @@ clc; close all; clear;
 dh_params = load_data('../../test_dh_params.txt');
 tform = dh_params_to_tform(dh_params);
 
-id = fopen('../../output.txt', 'wt');
+id = fopen('../../transform.txt', 'wt');
 fprintf(id, 'tform = [');
 fprintf(id, '%8.4f', tform(1, :));
 fprintf(id, '\n         ');
@@ -22,14 +22,5 @@ fclose(id);
 dh_params = load_data('../../dh_params.txt');
 q = load_data('../../joint_coordinates.txt')';
 
-dt = 0.001;
-n = 100;
-q0 = q(:, 1);
-qend = q(:, end);
-dq = (qend - q0) / n;
-
-for idx = 1 : n + 1
-    qi = q0 + dq * (idx - 1);
-    points = show_robot(dh_params, qi);
-    pause(dt);
-end
+points_1 = direct_kinematics(q(:, 1), dh_params);
+points_2 = direct_kinematics(q(:, end), dh_params);

@@ -7,10 +7,10 @@ function draw_gripper(flange_point, gripper_points)
                  gripper_points(:, 1), ...
                  gripper_points(:, 2), ...
                  gripper_points(:, 4) ];
-             
+    
+    hold on;
     plot3(points_1(1, :), points_1(2, :), points_1(3, :), 'k');
     hold on;
     plot3(points_2(1, :), points_2(2, :), points_2(3, :), 'k');
-    hold on;
 end
 
